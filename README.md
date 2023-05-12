@@ -1,1 +1,1 @@
-#ksoc
+# ksoc_digitalocean
