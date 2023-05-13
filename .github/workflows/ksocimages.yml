@@ -8,10 +8,10 @@ on:
 
 jobs:
     ksoc-image-scan:
-        permissions:
+      permissions:
         security-events: write
-        runs-on: ubuntu-latest
-        steps:
+      runs-on: ubuntu-latest
+      steps:
         - name: build local container
           uses: docker/build-push-action@v4
           with:
