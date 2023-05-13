@@ -1,4 +1,4 @@
-name: ksoc-image-scan
+name: KSOC Image Scan
 
 on:
     # Triggers the workflow on push request on the main branch for changes in the specified paths. 
