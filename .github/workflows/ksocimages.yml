@@ -9,6 +9,8 @@ on:
 jobs:
   ksoc-image-scan:
     permissions:
+      # required for all workflows
+      security-events: write
       # only required for workflows in private repositories
       actions: read
       contents: read
@@ -25,3 +27,9 @@ jobs:
         with:
           image: localbuild/testimage:latest
           fail_on_severity: critical
+          format: sarif
+      - name: Upload Image Scan SARIF Report
+        if: success() || failure()
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: ${{ steps.scan.outputs.sarif }}
