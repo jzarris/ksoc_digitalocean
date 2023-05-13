@@ -13,7 +13,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: KSOC Guard
-        uses: ksoclabs/guard-action@v0.0.9
+        uses: ksoclabs/guard-action@v0.0.10
         with:
           fail_on_severity: high
           ksoc_account_id: 2KW0CKZCYADZH5AL7TuFyoaIlvh
