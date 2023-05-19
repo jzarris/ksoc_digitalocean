@@ -8,7 +8,7 @@ jobs:
   ksoc-guard:
     permissions:
       contents: read
-      security-events: write      
+      security-events: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -17,6 +17,7 @@ jobs:
         id: ksoc-guard
         uses: ksoclabs/guard-action@v0.0.10
         with:
+          fail_on_severity: low
           format: sarif
           ksoc_account_id: 2KW0CKZCYADZH5AL7TuFyoaIlvh
           ksoc_access_key_id: ${{ secrets.KSOC_ACCESS_KEY_ID }}
@@ -26,5 +27,4 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         with:
           sarif_file: ${{ steps.ksoc-guard.outputs.sarif }}
-          checkout_path: /github/workspace
-    
+          checkout_path: /github/workspace    
